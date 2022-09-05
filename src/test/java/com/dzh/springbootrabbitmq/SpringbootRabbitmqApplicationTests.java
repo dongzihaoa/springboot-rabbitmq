@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.interceptor.CacheOperationInvocationContext;
 
 import javax.annotation.Resource;
 
@@ -23,8 +24,18 @@ class SpringbootRabbitmqApplicationTests {
      */
     @Test
     void hiPublish() {
-        rabbitTemplate.convertAndSend("smQueue","SpringBoot发送的HiWorld");
+        rabbitTemplate.convertAndSend("smQueue", "SpringBoot发送的HiWorld");
 
+    }
+
+    /**
+     * work模式测试
+     */
+    @Test
+    void work() {
+        for (int i = 0; i < 20; i++) {
+            rabbitTemplate.convertAndSend("work","SprinfBoot发送的work消息是" + i);
+        }
     }
 
 }

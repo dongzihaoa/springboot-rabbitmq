@@ -18,6 +18,9 @@ class SpringbootRabbitmqApplicationTests {
         rabbitTemplate.convertAndSend("simpleQueue", "SpringBoot发送的HelloWorld");
     }
 
+    /**
+     * 简化版测试
+     */
     @Test
     void hiPublish() {
         rabbitTemplate.convertAndSend("smQueue","SpringBoot发送的HiWorld");

@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class WorkConsumer {
 
-    @RabbitListener(queuesToDeclare = @Queue(value = "woek", durable = "false"))
+    @RabbitListener(queuesToDeclare = @Queue(value = "work", durable = "true"))
     public void consumer01(String msg) {
         System.out.println("consumer01的消费的消息：" + msg);
     }
 
-    @RabbitListener(queuesToDeclare = @Queue(value = "work", durable = "false"))
+    @RabbitListener(queuesToDeclare = @Queue(value = "work", durable = "true"))
     public void consumer02(String msg) {
         System.out.println("consumer02消费的消息是:" + msg);
     }

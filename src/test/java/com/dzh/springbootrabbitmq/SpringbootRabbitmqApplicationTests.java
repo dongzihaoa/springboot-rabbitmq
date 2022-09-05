@@ -34,8 +34,16 @@ class SpringbootRabbitmqApplicationTests {
     @Test
     void work() {
         for (int i = 0; i < 20; i++) {
-            rabbitTemplate.convertAndSend("work","SprinfBoot发送的work消息是" + i);
+            rabbitTemplate.convertAndSend("work", "SpringBoot发送的work消息是" + i);
         }
+    }
+
+    /**
+     * 发布订阅模式的生产者
+     */
+    @Test
+    void pubSub() {
+        rabbitTemplate.convertAndSend("pubsub-exchange","","订阅模式的生产者发布的消息");
     }
 
 }
